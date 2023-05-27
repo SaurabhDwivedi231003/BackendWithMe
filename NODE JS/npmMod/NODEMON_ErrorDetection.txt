@@ -1,0 +1,29 @@
+$npm install nodemon    
+
+Many user face problem while installing nodemon , here is the easiest solution .
+
+----->>IF YOUR ERROR LOOKS LIKE THIS <<-----
+
+nodemon : File 
+C:\Users\HP\AppData\Roaming\npm\nodemon.ps1 cannot be 
+loaded because running scripts is disabled on this      
+system. For more information, see
+about_Execution_Policies at
+https:/go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
++ nodemon -v
++ ~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [], P  
+   SSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess 
+
+
+-->>    SOLUTION : The solution is as simple as you cannot imagine.
+
+Simply Go to file path and delete - nodeon.ps1 file.
+
+In my case path is : C:\Users\HP\AppData\Roaming\npm\nodemon.ps1
+
+Simply delete : 'modemon.ps1' file and try again with 'nodemon -v' 
+
+Hope it works Thanks for reaching here !
