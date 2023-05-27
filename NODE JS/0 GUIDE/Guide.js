@@ -3,7 +3,7 @@
 If you are a beginner and want to learn basics of NODEjs then this could be the best place for you.
 
 
-======= Follow the guide for a proper understandings ==================
+============= Follow the guide for a proper understandings ==================
 
 HOW TO INSTALL NODEJS ?
 
