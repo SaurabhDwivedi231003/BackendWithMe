@@ -1,0 +1,6 @@
+1. Open terminal and go respective folder by typing 'cd' command.
+2. Type : 'npm init' hit enter.
+3. fill further details as asked or simply keep hitting enter , at last package.json file will be created.
+4. For installing express type : 'npm install express'
+
+OR you can follow documentation for complete complete : https://expressjs.com/en/starter/installing.html

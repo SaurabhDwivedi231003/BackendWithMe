@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+            integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"/>
+        <title>Weather App</title>
+        <style>
+            {
+                padding: 0;
+                margin: 0;
+                /*font-family: "Jost", sans-serif; */
+                font-family: "Quicksand", sans-serif;
+            }
+            body {
+                background: #e1dbe0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                height: 100vh;
+                width: 100vw;
+
+            }
+
+            body,
+            html {
+                font-size: 100.5%;
+                height: 100%;
+            }
+            .box {
+                width: 25vw;
+                height: 40vh;
+                border-radius: 0.5rem;
+                background: #AAB8CF;
+                box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.2);
+                position: relative;
+                min-height: 35rem;
+                overflow: hidden;
+            }
+
+            .wave {
+                opacity: 0.2;
+                position: absolute;
+                background: white;
+                animation: drift 3500ms infinite linear;
+                z-index: 1;
+                top: 150%;
+                left: 50%;
+                width: 50rem;
+                height: 60rem;
+                margin-left: -25rem;
+                margin-top: -25rem;
+                transform-origin: 50% 48%;
+                border-radius: 40%;
+                /* animation: drift 3000ms infinite linear; */
+            }
+            .wave-three {
+                animation: drift 5000ms infinite linear;
+                z-index: 2 !important;
+                opacity: 0.2;
+            }
+            .wave-two {
+                animation: drift 7000ms infinite linear;
+                opacity: 0.1;
+                z-index: 3 !important;
+            }
+            .box:after {
+                content: "";
+                display: block;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+            .box:after {
+                content: "";
+                display: block;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 11;
+                transform: translate3d(0, 0, 0);
+            }
+            @keyframes drift {
+                from {
+                    transform: rotate(0deg);
+                }
+                from {
+                    transform: rotate(360deg);
+                }
+            }
+            .fa-street-view {
+                animation: rotates 3s linear infinite alternate;
+            }
+            @keyframes rotates {
+                from {
+                    transform: translateX(-0.5rem);
+                }
+                to {
+                    transform: translateX(0.5rem);
+                }
+            }
+
+            #date {
+                margin-top: 0.5rem;
+                text-align: center;
+                color: #57606f;
+                font-size: 1.2rem;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+            .temp {
+                margin-top: 2.5rem;
+                text-align: center;
+                font-size: 3rem;
+            }
+            .tempmin_max {
+                text-align: center;
+                margin-top: 0.3rem;
+                font-weight: 300;
+                font-size: 1.2rem;
+                color: #57606f;
+            }
+            #weathercon {
+                height: 25%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 3em;
+            }
+            #weathercon .fas {
+                font-size: 6rem;
+                animation: fas-anime 3s linear infinite alternate;
+            }
+
+            #weathercon .fas {
+                font-size: 6rem;
+                animation: fas-anime 3s linear infinite alternate;
+            }
+
+            @keyframes fas-anime {
+                from {
+                    transform: scale(0.8);
+                }
+                to {
+                    transform: scale(1.2);
+                }
+            }
+            @media (max-width: 600px) {
+                .box {
+                    width: 90vw;
+                    height: 80vh;
+                }
+                .wave {
+                    top: 85%;
+                }
+                #weathercon {
+                    font-size: 5em;
+                }
+                .info {
+                    font-size: 1.5rem;
+                }
+            }
+            @media (max-height : 500px) {
+                .box {
+                    height: 80vh;
+                }
+                .wave {
+                    top: 115%;
+                }
+            }
+            .location {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div id="weathercon">
+                <i class="fas fa-sun" style="color : #eccc68"></i>
+            </div>
+            <div class="info">
+
+                <h2 class="location">
+                    <i class="fa-solid fa-street-view" style="color : #12ffcd"></i>{%loaction%},{%country%}</h2>
+                <p id="date">
+                    THUR | OCT 23 | 10:49AM
+                </p>
+                <div class="wave"></div>
+                <div class="wave-two"></div>
+                <div class="wave-three"></div>
+                <h1 class="temp">{%tempVal%}&#176;C</h1>
+                <h3 class="tempmin_max">Min {%tempmin%}&#176;C | Max {%tempmax%}&#176;C</h3>
+                <h3></h3>
+            </div>
+        </div>
+
+        <script>
+
+            const curDate = document.getElementById("date");
+            const weathercon = document.getElementById('weathercon');
+
+            const tempStatus = "{%tempstatus%}";
+
+            //condition to check sunny or cloud
+
+            if(tempStatus == "Sunny"){ weather.innerHTML = "<i class='fas  fa-sun' style='color : #eccc68'></i>"}
+            else if(tempStatus == "Cloud"){ weather.innerHTML = "<i class='fas  fa-cloud' style='color : #f1f2f6'></i>"}
+            else if(tempStatus == "Rainy"){ weather.innerHTML = "<i class='fas  fa-cloud-rain' style='color : #a4b0be'></i>"}
+            else { weather.innerHTML = "<i class='fas  fa-cloud' style='color : #44c3de'></i>"}
+
+            const getCurrentDay = () => {
+                const weekday = [
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                ];
+
+                const currentTime = new Date();
+                let day = weekday[currentTime.getDay()];
+                return day;
+            };
+
+            const getCurrentTime = () => {
+
+                var months = [
+                    "Jan",
+                    "Feb",
+                    'Mar',
+                    "Apr",
+                    'May',
+                    "June",
+                    "July",
+                    "Aug",
+                    "Sept",
+                    "Oct",
+                    "Nov",
+                    "Dec"
+                ];
+                var currTime = new Date();
+                var month = months[currTime.getMonth()];
+                var date = currTime.getDate();
+
+                let hours = currTime.getHours();
+                let mins = currTime.getMinutes();
+                let perios = "AM";
+                if (hours > 11) {
+                    perios = "PM"
+                    if (hours > 12) 
+                        hours -= 12;
+                    }
+                
+                if (mins < 10) {
+                    mins = '0' + mins;
+                }
+                //console.log(month + "/" + day);
+                return ` ${month} ${date} | ${hours}:${mins} ${perios}`;
+
+            };
+            curDate.innerHTML = getCurrentDay() + '|' + getCurrentTime();
+        </script>
+    </body>
+</html> 
