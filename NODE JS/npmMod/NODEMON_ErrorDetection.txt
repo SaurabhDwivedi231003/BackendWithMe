@@ -20,7 +20,7 @@ At line:1 char:1
 
 -->>    SOLUTION : The solution is as simple as you cannot imagine.
 
-Simply Go to file path and delete - nodeon.ps1 file.
+Simply Go to file path and delete - nodemon.ps1 file.
 
 In my case path is : C:\Users\HP\AppData\Roaming\npm\nodemon.ps1
 
