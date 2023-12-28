@@ -1,12 +1,10 @@
-# Backend Series
+# BackendWithMe
 
-![1631204081-106730](https://github.com/SaurabhDwivedi231003/BACKEND-SERIES/assets/128415215/9ee93908-ed21-4e6a-b1b9-fa80d3ba70dd)
+![1631204081-106730](https://github.com/SaurabhDwivedi231003/BackendWithMe/assets/128415215/9ee93908-ed21-4e6a-b1b9-fa80d3ba70dd)
 
 # Welcome to Node.js Beginner Series
 
-If you are a beginner and want to learn the basics of Node.js, this could be the best place for you.
-This repository contains a comprehensive step-by-step tutorial series that aims to guide beginners in building robust and scalable web applications. Whether you're new to backend development or looking to enhance your skills, this series will cover the fundamentals of backend development, including RESTful APIs, database integration, user authentication, and more.
-
+If you are a beginner and want to learn the basics of Node.js, this could be the best place for you. This repository contains a comprehensive step-by-step tutorial series that aims to guide beginners in building robust and scalable web applications. Whether you're new to backend development or looking to enhance your skills, this series will cover the fundamentals of backend development, including RESTful APIs, database integration, user authentication, and more.
 
 ## Follow the guide for a proper understanding
 
@@ -29,9 +27,6 @@ Follow the link below for a complete tutorial on Node.js installation:
 **Let's start now! All the best!**
 
 Note: This file is named with a .js extension to make the file colorful. It's not a recommended practice, but it's okay. 😊
-
-
-
 
 ## Table of Contents
 
